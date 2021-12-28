@@ -4,7 +4,7 @@
 一款Material Design设计的新闻APP
 
 ## 项目截图
-<img src="https://github.com/leaf-wai/News/blob/master/image/Screenshot_2020-12-02-14-48-10-982_com.leaf.news.jpg" width="30%" />
+<img src="D:/MyRepository/News-master3/image/Snipaste1.png" width="30%" />
 
 ## 数据来源
 - [天行数据Api](https://www.tianapi.com/)
