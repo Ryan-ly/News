@@ -6,7 +6,7 @@
 ## 项目截图  
 
 
-![](News-master3/image/Snipaste1.png)
+![image](https://github.com/Ryan-ly/News/blob/master/News-master3/image/Snipaste1.png)
 
 ## 数据来源
 - [天行数据Api](https://www.tianapi.com/)
