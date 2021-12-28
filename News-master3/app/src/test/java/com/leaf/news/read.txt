@@ -1,1 +1,0 @@
-ToolBar控件替代ActionBar控件，需要在java代码中使用setSupportActionBar()方法
