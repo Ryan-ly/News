@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -71,21 +70,21 @@ public class RecodeActivity extends AppCompatActivity {
                                     recordList.add(record1);
                                     recodes[i++] = record.getTitle();
                                 }
- 
-                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(RecodeActivity.this,
-                                android.R.layout.simple_list_item_1,recodes);
-                        listView.setAdapter(adapter);
-                    }else{
-                        System.out.println("错误");
-                    }
+                                ArrayAdapter<String> adapter = new ArrayAdapter<String>(RecodeActivity.this,
+                                        android.R.layout.simple_list_item_1,recodes);
+
+                                listView.setAdapter(adapter);
+                            }else{
+                                System.out.println("sss");
+                            }
+                        }
+                    });
+
                 }
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                    Toast.makeText(RecodeActivity.this, "历史记录查询错误，请尝试登录", Toast.LENGTH_SHORT).show();
                 }
             },json);
-        }else{
-            Toast.makeText(RecodeActivity.this, "历史记录查询错误，请尝试登录", Toast.LENGTH_SHORT).show();
         }
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             Intent intent = new Intent(RecodeActivity.this, ContentsActivity.class);
