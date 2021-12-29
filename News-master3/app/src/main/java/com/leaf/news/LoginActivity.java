@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         user.setPassword(etPwd.getText().toString());
         Gson gson = new Gson();
         String json=gson.toJson(user);
-        HttpUtil.sendOkHttpRequest1("http://10.34.58.115:7001/login", new Callback() {
+        HttpUtil.sendOkHttpRequest1("http://106.52.184.133:7001/login", new Callback() {
             @Override
             public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
                 try {

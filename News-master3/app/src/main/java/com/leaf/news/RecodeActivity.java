@@ -29,6 +29,7 @@ import okhttp3.Response;
 public class RecodeActivity extends AppCompatActivity {
     private List<Record> recordList = new ArrayList<Record>();
     private ListView listView;
+    private String responseText = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,22 +52,26 @@ public class RecodeActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json=gson.toJson(record);
         if(spFile.getString(loginId,null)==null || !spFile.getString(loginId,null).equals("-1")){
-            HttpUtil.sendOkHttpRequest1("http://10.34.58.115:7001/searchrecord", new Callback() {
+            HttpUtil.sendOkHttpRequest1("http://106.52.184.133:7001/searchrecord", new Callback() {
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                    final String responseText = response.body().string();
-                    Gson gson = new Gson();
-                    final RecodeList list = gson.fromJson(responseText, RecodeList.class);
-                    final int code = list.code;
-                    if (code == 200) {
-                        recordList.clear();
-                        String[] recodes=new String[list.data.size()];
-                        int i = 0;
-                        for (Record record : list.data) {
-                            Record record1 = new Record(record.getTitle(), record.getUrl());
-                            recordList.add(record1);
-                            recodes[i++] = record.getTitle();
-                        }
+                    responseText = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Gson gson = new Gson();
+                            final RecodeList list = gson.fromJson(responseText, RecodeList.class);
+                            final int code = list.code;
+                            if (code == 200) {
+                                recordList.clear();
+                                String[] recodes=new String[list.data.size()];
+                                int i = 0;
+                                for (Record record : list.data) {
+                                    Record record1 = new Record(record.getTitle(), record.getUrl());
+                                    recordList.add(record1);
+                                    recodes[i++] = record.getTitle();
+                                }
+ 
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(RecodeActivity.this,
                                 android.R.layout.simple_list_item_1,recodes);
                         listView.setAdapter(adapter);
