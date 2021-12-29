@@ -68,7 +68,7 @@ public class Fragment_sport extends Fragment {
                     record.setId(spFile.getString(loginId,null));
                     Gson gson = new Gson();
                     String json=gson.toJson(record);
-                    HttpUtil.sendOkHttpRequest1("http://10.34.58.115:7001/record", new Callback() {
+                    HttpUtil.sendOkHttpRequest1("http://106.52.184.133:7001/record", new Callback() {
                         @Override
                         public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                         }
