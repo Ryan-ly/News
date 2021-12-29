@@ -64,7 +64,7 @@ public class LogonActivity extends AppCompatActivity implements View.OnClickList
         user.setUsername(etUserName.getText().toString());
         Gson gson = new Gson();
         String json=gson.toJson(user);
-        HttpUtil.sendOkHttpRequest1("http://10.34.58.115:7001/logon", new Callback() {
+        HttpUtil.sendOkHttpRequest1("http://106.52.184.133:7001/logon", new Callback() {
             @Override
             public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
                 LogonActivity.this.runOnUiThread(new Runnable() {
